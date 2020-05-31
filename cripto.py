@@ -7,12 +7,12 @@ textos ou arquivos e gerar um arquivo de saída.
 
 Autor: Allainn Christiam J. Tavares
 Data Criação: 25/02/2020
-Versão: 0.0.3
+Versão: 0.1.0
 """
 import sys
 import math
 
-VERSAO='0.0.3'
+VERSAO='0.1.0'
 
 def Fibonacci(n): 
     if n<0: 
@@ -35,6 +35,11 @@ def print_error():
 
 
 def Criptografar(text):
+    """
+    Método responsável em realizar a criptografoa
+
+    :param text: Texto a ser criptografado
+    """
     tam=len(text)
     x=math.sqrt(tam)
     if x>int(x):
@@ -75,6 +80,11 @@ def Criptografar(text):
 
 
 def Descriptografar(text):
+    """
+    Método responsável em realizar a descriptografoa
+
+    :param text: Texto a ser descriptografado
+    """
     tam=len(text)
     x=math.sqrt(tam)
     if x>int(x):
@@ -113,67 +123,71 @@ def Descriptografar(text):
     print("Descriptografado com sucesso")
     return oldText
 
-txt_help='''Uso: python3 cripto.py OPÇÃO(-c | -d) [-a ARQUIVO | -t TEXTO]
-Criptografa ou Descriptografa um ARQUIVO ou TEXTO.
+def main():
+    txt_help='''Uso: python3 cripto.py OPÇÃO(-c | -d) [-a ARQUIVO | -t TEXTO]
+    Criptografa ou Descriptografa um ARQUIVO ou TEXTO.
 
-  -c, --cripto		criptografar
-  -d, --decripto	descriptografar
+    -c, --cripto		criptografar
+    -d, --decripto	descriptografar
 
-  -t, --texto		entrada de texto
-  -a, --arquivo		entrada de arquivo
+    -t, --texto		entrada de texto
+    -a, --arquivo		entrada de arquivo
 
-  -h, --help		mostra esta ajuda e sai
-  -v, --version		informa a versão e sai
+    -h, --help		mostra esta ajuda e sai
+    -v, --version		informa a versão e sai
 
-Exemplo:
-    python3 cripto -c -t Teste
-    python3 cripto -d -a criptografado.txt
+    Exemplo:
+        python3 cripto -c -t Teste
+        python3 cripto -d -a criptografado.txt
 
-Autor: Allainn Christiam'''
+    Autor: Allainn Christiam'''
 
 
-try:
-    param = sys.argv[1]
-    if param == '-h' or param == '--help':
-        print(txt_help)
-    elif param == '-v' or param == '--version':
-        print('Cripto 0.0.2')
-    elif param=='-c' or param=='--cripto' or param=='-d' or param=='--decripto':
-        try:
-            param2 = sys.argv[2]
-            if param2=='-t' or param2=='--texto':
-                try:
-                    text = sys.argv[3]
-                    text = sys.argv[3:]
-                    text = ' '.join(text)
-                    if param=='-c' or param=='--cripto':
-                        text = Criptografar(text)
-                    elif param=='-d' or param=='--decripto':
-                        text = Descriptografar(text)
-                    print(text)
-                except IndexError:
-                    print_error()
-            elif param2=='-a' or param2=='--arquivo':
-                try:
-                    nome_arq = sys.argv[3]
+    try:
+        param = sys.argv[1]
+        if param == '-h' or param == '--help':
+            print(txt_help)
+        elif param == '-v' or param == '--version':
+            print('Cripto 0.0.2')
+        elif param=='-c' or param=='--cripto' or param=='-d' or param=='--decripto':
+            try:
+                param2 = sys.argv[2]
+                if param2=='-t' or param2=='--texto':
                     try:
-                        arq = open(nome_arq, 'r')
-                    except FileNotFoundError:
-                        print('Arquivo ou diretório não encontrado!!')
-                        quit()
-                    text=arq.read()
-                    arq.close()
-                    if param=='-c' or param=='--cripto':
-                        text = Criptografar(text)
-                        arq = open('criptografado.txt', 'w')
-                    elif param=='-d' or param=='--decripto':
-                        text = Descriptografar(text)
-                        arq = open('descriptografado.txt', 'w')
-                    arq.write(text)
-                    arq.close()
-                except IndexError:
-                    print_error()
-        except IndexError:
-            print_error()
-except IndexError:
-    print_error()
+                        text = sys.argv[3]
+                        text = sys.argv[3:]
+                        text = ' '.join(text)
+                        if param=='-c' or param=='--cripto':
+                            text = Criptografar(text)
+                        elif param=='-d' or param=='--decripto':
+                            text = Descriptografar(text)
+                        print(text)
+                    except IndexError:
+                        print_error()
+                elif param2=='-a' or param2=='--arquivo':
+                    try:
+                        nome_arq = sys.argv[3]
+                        try:
+                            arq = open(nome_arq, 'r')
+                        except FileNotFoundError:
+                            print('Arquivo ou diretório não encontrado!!')
+                            quit()
+                        text=arq.read()
+                        arq.close()
+                        if param=='-c' or param=='--cripto':
+                            text = Criptografar(text)
+                            arq = open('criptografado.txt', 'w')
+                        elif param=='-d' or param=='--decripto':
+                            text = Descriptografar(text)
+                            arq = open('descriptografado.txt', 'w')
+                        arq.write(text)
+                        arq.close()
+                    except IndexError:
+                        print_error()
+            except IndexError:
+                print_error()
+    except IndexError:
+        print_error()
+
+if __name__ == "__main__":
+    main()
