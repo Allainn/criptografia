@@ -30,8 +30,8 @@ def print_error():
     print("Os argumentos fornecidos não são suficientes!")
     print("\nUso: python3 cripto.py OPÇÃO(-c | -d) [-a ARQUIVO | -t TEXTO]")
     print("\nExemplo:")
-    print("python3 cripto -c -t Teste")
-    print("python3 cripto -d -a criptografado.txt")
+    print("python3 cripto.py -c -t Teste")
+    print("python3 cripto.py -d -a criptografado.txt")
 
 
 def Criptografar(text):
@@ -59,10 +59,10 @@ def Criptografar(text):
     for i in range(num):
         aux=[]
         for j in range(num):
-            aux.append(chr(ord(text[cont])+Fibonacci(fib)))
+            aux.append(chr((ord(text[cont])+Fibonacci(fib)) % 254))
             cont+=1
             fib+=1
-            if fib > 8:
+            if fib > 15:
                 fib = 3
         mat.append(aux)
         
@@ -114,9 +114,9 @@ def Descriptografar(text):
     fib = 3
     for i in range(num):
         for j in range(num):
-            oldText+=chr(ord(mat[i][j])-Fibonacci(fib))
+            oldText+=chr((ord(mat[i][j])-Fibonacci(fib)) % 254)
             fib+=1
-            if fib > 8:
+            if fib > 15:
                 fib = 3
             
     oldText=oldText.rstrip(' ')
@@ -127,14 +127,14 @@ def main():
     txt_help='''Uso: python3 cripto.py OPÇÃO(-c | -d) [-a ARQUIVO | -t TEXTO]
     Criptografa ou Descriptografa um ARQUIVO ou TEXTO.
 
-    -c, --cripto		criptografar
+    -c, --cripto	criptografar
     -d, --decripto	descriptografar
 
     -t, --texto		entrada de texto
-    -a, --arquivo		entrada de arquivo
+    -a, --arquivo	entrada de arquivo
 
     -h, --help		mostra esta ajuda e sai
-    -v, --version		informa a versão e sai
+    -v, --version	informa a versão e sai
 
     Exemplo:
         python3 cripto -c -t Teste
