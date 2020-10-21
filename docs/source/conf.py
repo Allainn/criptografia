@@ -20,10 +20,11 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 project = 'Des_&_Cripto AM'
 copyright = '2020, Allainn Tavares e Marcos Anjos'
-author = 'Allainn Tavares, Marcos Anjos'
+author = 'Allainn Tavares e Marcos Anjos'
 
 # The full version, including alpha/beta/rc tags
 release = '2020'
+version = '0.1.3'
 
 
 # -- General configuration ---------------------------------------------------
@@ -36,7 +37,10 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.todo',
     "sphinx_rtd_theme",
+    'rst2pdf.pdfbuilder',
 ]
+
+pdf_documents = [('index', u'documentacao-des_cripto', u'Documentação Des_&_Cripto AM', u'Allainn Tavares e Marcos Anjos'),]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['templates']
