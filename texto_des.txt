@@ -1,0 +1,1 @@
+Um exemplo de texto em um arquivo a ser criptografado!

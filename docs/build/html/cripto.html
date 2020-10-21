@@ -1,0 +1,416 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt-BR" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Des_&amp;_Cripto &mdash; documentação Des_&amp;_Cripto AM 2020</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Buscar" href="search.html" />
+    <link rel="prev" title="Bem vindo à documentação do Des_&amp;_Cripto AM!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Des_&_Cripto AM
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Conteúdo:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Des_&amp;_Cripto</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Des_&_Cripto AM</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Des_&amp;_Cripto</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/cripto.rst.txt" rel="nofollow"> Ver código-fonte da página</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-cripto">
+<span id="des-cripto"></span><h1>Des_&amp;_Cripto<a class="headerlink" href="#module-cripto" title="Link permanente para este título">¶</a></h1>
+<p>Este módulo é responsável por criptografar ou descriptografar textos inseridos 
+diretamente pelo terminal e retornar o texto no mesmo. Além disso é possível realizar a 
+criptografia ou descriptografia de um arquivo. A saída pode ser armazenada em um arquivo 
+texto com o nome desejado.</p>
+<p>Autores: Allainn Tavares e Marcos Anjos</p>
+<p>Data Criação: 25/02/2020</p>
+<p>Versão: 0.1.3</p>
+<p>Este módulo é executado diretamente no terminal ou por meio do Shell Script passando como 
+argumentos a opção de criptografar ou descriptografar e a opção se o método escolhido será 
+aplicado em  um arquivo ou texto, acompanhado pelo nome do arquivo ou o texto. Também pode
+ser passado o argumento se deseja salvar a saída em um arquivo acompanhado com o nome do 
+arquivo a ser gerado.</p>
+<p>Exemplos:</p>
+<p>Criptografando um texto direto do terminal:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python3 cripto.py --cripto --texto peso
+Criptografado com sucesso:
+hpuU
+</pre></div>
+</div>
+<p>Descriptografando um texto direto do terminal:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python3 cripto.py --decripto -t hpuU
+Descriptografado com sucesso:
+Peso
+</pre></div>
+</div>
+<p>Criptografando um arquivo de texto:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python3 cripto.py -c --arquivo texto.txt
+Criptografado com sucesso:
+<span class="o">(</span>¾<span class="s2">&quot;`j¦&quot;</span>qÍ<span class="o">{</span>ìh
+-5PiWs-gfTvcÈ<span class="o">(</span>
+          Wn<span class="p">|</span><span class="c1">#Bínnd¦rcWy°#à}Ï&quot;uù-u¤%</span>
+</pre></div>
+</div>
+<p>Descriptografando um arquivo de texto:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python3 cripto.py -d -a texto_cripto.txt
+Descriptografado com sucesso:
+Um exemplo de texto em um arquivo a ser criptografado!
+</pre></div>
+</div>
+<p>Também é possível salvar a saída em um arquivo de texto, basta utilizar o ‘-s’ ou ‘--salvar’, 
+podendo ser utilizado em conjunto de com um texto direto do terminal ou proveniente de um 
+arquivo:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python3 cripto.py -c -a texto.txt --salvar texto_cripto.txt
+Criptografado com sucesso:
+Salvo no arquivo texto_cripto.txt
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python3 cripto.py -c -a texto_cripto.txt -s texto_des.txt
+Descriptografado com sucesso:
+Salvo no arquivo texto_des.txt
+</pre></div>
+</div>
+<p>Para mais informações pode se utilizar o ‘-h’ ou ‘–help’:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ python3 cripto.py -h
+usage: cripto.py <span class="o">[</span>-c<span class="o">]</span> <span class="o">[</span>-d<span class="o">]</span> <span class="o">[</span>-t TEXTO<span class="o">]</span> <span class="o">[</span>-a ARQUIVO<span class="o">]</span> <span class="o">[</span>-s ARQUIVO<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span>-h<span class="o">]</span>
+
+Criptografa ou Descriptografa um ARQUIVO ou TEXTO.
+
+Argumentos:
+-c, --cripto          Criptografar
+-d, --decripto        Descriptografar
+-t TEXTO, --texto TEXTO
+                        Entrada de texto
+-a ARQUIVO, --abrir ARQUIVO
+                        Entrada de arquivo
+-s ARQUIVO, --salvar ARQUIVO
+                        Salvar no arquivo
+-v, --version         Exibe a versão.
+-h, --help            Mostra esta mensagem.
+</pre></div>
+</div>
+<dl class="py function">
+<dt id="cripto.Criptografar">
+<code class="sig-prename descclassname">cripto.</code><code class="sig-name descname">Criptografar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texto</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cripto.html#Criptografar"><span class="viewcode-link">[código fonte]</span></a><a class="headerlink" href="#cripto.Criptografar" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsável em realizar a criptografia de um texto recebido por parâmetro.</p>
+<p>A criptografia é realizada seguindo os seguintes passos:</p>
+<ul>
+<li><p>Inverte o texto</p></li>
+<li><p>Troca as letras utilizando o Fibonacci de 3 a 15 como chave:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Soma o valor de Fibonacci a letra</p></li>
+<li><p>Obtém o resto da divisão do resultado por 254</p></li>
+<li><p>O resultado é a nova letra</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Transpõe o novo texto utilizando uma matriz quadrada:</p>
+<blockquote>
+<div><ul>
+<li><p>O texto é adicionado na matriz</p></li>
+<li><p>Percorre a matriz em zig-zag gerando o texto final</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Sobe nas colunas pares e desce nas colunas ímpares.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>O texto final é retornado</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>texto</strong> – Texto a ser criptografado</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>Texto criptografado</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cripto.Descriptografar">
+<code class="sig-prename descclassname">cripto.</code><code class="sig-name descname">Descriptografar</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">texto</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cripto.html#Descriptografar"><span class="viewcode-link">[código fonte]</span></a><a class="headerlink" href="#cripto.Descriptografar" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsável em realizar a descriptografia de um texto recebido por parâmetro.</p>
+<p>A descriptografia é realizada seguindo os seguintes passos:</p>
+<ul>
+<li><p>Transpõe o novo texto utilizando uma matriz quadrada:</p>
+<blockquote>
+<div><ul>
+<li><p>O texto é adicionado na matriz em zig-zag</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Adiciona subindo nas colunas pares e descendo nas colunas ímpares</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Percorre a matriz normalmente gerando o novo texto</p></li>
+<li><p>Troca as letras utilizando o Fibonacci de 3 a 15 como chave:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Subtrai o valor de Fibonacci a letra</p></li>
+<li><p>Obtém o resto da divisão do resultado por 254</p></li>
+<li><p>O resultado é a nova letra</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Inverte o novo texto</p></li>
+<li><p>O texto final é retornado</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>texto</strong> – Texto a ser descriptografado</p>
+</dd>
+<dt class="field-even">Retorna</dt>
+<dd class="field-even"><p>Texto descriptografado</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cripto.Fibonacci">
+<code class="sig-prename descclassname">cripto.</code><code class="sig-name descname">Fibonacci</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cripto.html#Fibonacci"><span class="viewcode-link">[código fonte]</span></a><a class="headerlink" href="#cripto.Fibonacci" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsável em buscar o valor de Fibonacci de uma determiada posição que é
+recebida por parâmetro.</p>
+<p>O método utiliza de recursividade para encontrar o valor desejado.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parâmetros</dt>
+<dd class="field-odd"><p><strong>n</strong> – Posição que se deseja para obter o valor de Fibonacci</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cripto.main">
+<code class="sig-prename descclassname">cripto.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cripto.html#main"><span class="viewcode-link">[código fonte]</span></a><a class="headerlink" href="#cripto.main" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsável em validar os argumentos provenientes da chamada do módulo via
+terminal.</p>
+<p>É realizado a criação dos argumentos e a validação dos mesmos, de modo que é preciso ter
+o argumento de criptografia ou descriptografia (não pode ambos) e o argumento de texto 
+ou arquivo (não pode ambos). O argumento de salvar pode ser também passado pelo usuário.</p>
+<p>Caso o argumentos sejam de criptografar e texto, o valor do texto é obtido e este método
+redireciona para o método Criptografar passando o texto. Caso for descriptografar, a
+única diferença é a chamada do método, que neste caso é o método Descriptografar.</p>
+<p>Quando se trata em realizar a criptografia ou descriptografia de um arquivo, 
+primeiramente o arquivo é aberto e capturado seu texto, para então ser chamado o método
+Criptografar ou Descriptografar.</p>
+<p>Se não houver o parâmetro de salvar em um arquivo, a criptografia ou a descriptografia é
+exibida diretamente no terminal. Caso se deseja salvar, é capturado o nome do arquivo 
+passado e então é gerado o arquivo com o conteúdo da saída.</p>
+<p>No interior deste método, há um método chamado validar, que recebe como parâmetro uma
+função. Este método é responsável em validar os argumentos de texto e arquivo, 
+verificando se foi passado apenas um destes argumentos e então realizando a tarefa 
+escolhida, texto ou arquivo. A função recebida pode ser Criptografar ou Descriptografar, 
+de modo que há validação é realiza por fora da função, e a mesma só tem a obrigação de 
+executar a função passada no contexto validado como descrito.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="cripto.print_error">
+<code class="sig-prename descclassname">cripto.</code><code class="sig-name descname">print_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cripto.html#print_error"><span class="viewcode-link">[código fonte]</span></a><a class="headerlink" href="#cripto.print_error" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método responsável em informar ao usuário o modo de uso do módulo acompanhado por 
+exemplos. A mensagem é exibida em caso de erro ao tentar executá-lo.</p>
+<p>Está mensagem poderá ser exebida em caso de não passar o parâmetro de criptografia ou
+descriptografia, ou mesmo passar ambos os parâmetros.</p>
+<p>Também pode ocorrer está mensagem no caso de haver corretamente o parâmetro de 
+criptografia ou descriptografia, mas está faltando o parâmetro de texto ou arquivo, ou
+mesmo foi passado os dois parâmetros.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Bem vindo à documentação do Des_&amp;_Cripto AM!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Anterior</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Allainn Tavares e Marcos Anjos
+
+    </p>
+  </div>
+    
+    
+    
+    Compilado com <a href="http://sphinx-doc.org/">Sphinx</a> usando um
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">tema</a>
+    
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,566 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="pt-BR" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>cripto &mdash; documentação Des_&amp;_Cripto AM 2020</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Buscar" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Des_&_Cripto AM
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Pesquisar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Conteúdo:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cripto.html">Des_&amp;_Cripto</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Des_&_Cripto AM</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Código do módulo</a> &raquo;</li>
+        
+      <li>cripto</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Código fonte para cripto</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#!/usr/bin/python3</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Este módulo é responsável por criptografar ou descriptografar textos inseridos </span>
+<span class="sd">diretamente pelo terminal e retornar o texto no mesmo. Além disso é possível realizar a </span>
+<span class="sd">criptografia ou descriptografia de um arquivo. A saída pode ser armazenada em um arquivo </span>
+<span class="sd">texto com o nome desejado.</span>
+
+<span class="sd">Autores: Allainn Tavares e Marcos Anjos       </span>
+
+<span class="sd">Data Criação: 25/02/2020</span>
+
+<span class="sd">Versão: 0.1.3</span>
+
+<span class="sd">Este módulo é executado diretamente no terminal ou por meio do Shell Script passando como </span>
+<span class="sd">argumentos a opção de criptografar ou descriptografar e a opção se o método escolhido será </span>
+<span class="sd">aplicado em  um arquivo ou texto, acompanhado pelo nome do arquivo ou o texto. Também pode</span>
+<span class="sd">ser passado o argumento se deseja salvar a saída em um arquivo acompanhado com o nome do </span>
+<span class="sd">arquivo a ser gerado.</span>
+
+<span class="sd">Exemplos:</span>
+
+<span class="sd">Criptografando um texto direto do terminal:</span>
+
+<span class="sd">.. code-block:: shell</span>
+<span class="sd">    </span>
+<span class="sd">    $ python3 cripto.py --cripto --texto peso</span>
+<span class="sd">    Criptografado com sucesso:</span>
+<span class="sd">    hpuU</span>
+
+<span class="sd">Descriptografando um texto direto do terminal:</span>
+
+<span class="sd">.. code-block:: shell</span>
+<span class="sd">    </span>
+<span class="sd">    $ python3 cripto.py --decripto -t hpuU</span>
+<span class="sd">    Descriptografado com sucesso:</span>
+<span class="sd">    Peso</span>
+
+<span class="sd">Criptografando um arquivo de texto:</span>
+
+<span class="sd">.. code-block:: shell</span>
+<span class="sd">    </span>
+<span class="sd">    $ python3 cripto.py -c --arquivo texto.txt</span>
+<span class="sd">    Criptografado com sucesso:</span>
+<span class="sd">    (¾&quot;`j¦&quot;qÍ{ìh</span>
+<span class="sd">    -5PiWs-gfTvcÈ(</span>
+<span class="sd">              Wn|#Bínnd¦rcWy°#à}Ï&quot;uù-u¤%</span>
+
+
+<span class="sd">Descriptografando um arquivo de texto:</span>
+
+<span class="sd">.. code-block:: shell</span>
+<span class="sd">    </span>
+<span class="sd">    $ python3 cripto.py -d -a texto_cripto.txt</span>
+<span class="sd">    Descriptografado com sucesso:</span>
+<span class="sd">    Um exemplo de texto em um arquivo a ser criptografado!</span>
+
+<span class="sd">Também é possível salvar a saída em um arquivo de texto, basta utilizar o &#39;-s&#39; ou &#39;-\-salvar&#39;, </span>
+<span class="sd">podendo ser utilizado em conjunto de com um texto direto do terminal ou proveniente de um </span>
+<span class="sd">arquivo:</span>
+
+<span class="sd">.. code-block:: shell</span>
+<span class="sd">    </span>
+<span class="sd">    $ python3 cripto.py -c -a texto.txt --salvar texto_cripto.txt</span>
+<span class="sd">    Criptografado com sucesso:</span>
+<span class="sd">    Salvo no arquivo texto_cripto.txt</span>
+
+<span class="sd">.. code-block:: shell</span>
+<span class="sd">    </span>
+<span class="sd">    $ python3 cripto.py -c -a texto_cripto.txt -s texto_des.txt</span>
+<span class="sd">    Descriptografado com sucesso:</span>
+<span class="sd">    Salvo no arquivo texto_des.txt</span>
+
+<span class="sd">Para mais informações pode se utilizar o &#39;-h&#39; ou &#39;--help&#39;:</span>
+
+<span class="sd">.. code-block:: shell</span>
+<span class="sd">    </span>
+<span class="sd">    $ python3 cripto.py -h</span>
+<span class="sd">    usage: cripto.py [-c] [-d] [-t TEXTO] [-a ARQUIVO] [-s ARQUIVO] [-v] [-h]</span>
+
+<span class="sd">    Criptografa ou Descriptografa um ARQUIVO ou TEXTO.</span>
+
+<span class="sd">    Argumentos:</span>
+<span class="sd">    -c, --cripto          Criptografar</span>
+<span class="sd">    -d, --decripto        Descriptografar</span>
+<span class="sd">    -t TEXTO, --texto TEXTO</span>
+<span class="sd">                            Entrada de texto</span>
+<span class="sd">    -a ARQUIVO, --abrir ARQUIVO</span>
+<span class="sd">                            Entrada de arquivo</span>
+<span class="sd">    -s ARQUIVO, --salvar ARQUIVO</span>
+<span class="sd">                            Salvar no arquivo</span>
+<span class="sd">    -v, --version         Exibe a versão.</span>
+<span class="sd">    -h, --help            Mostra esta mensagem.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+
+<span class="n">VERSAO</span><span class="o">=</span><span class="s1">&#39;0.1.3&#39;</span>
+
+<div class="viewcode-block" id="Fibonacci"><a class="viewcode-back" href="../cripto.html#cripto.Fibonacci">[documentos]</a><span class="k">def</span> <span class="nf">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">):</span> 
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Método responsável em buscar o valor de Fibonacci de uma determiada posição que é</span>
+<span class="sd">    recebida por parâmetro.</span>
+
+<span class="sd">    O método utiliza de recursividade para encontrar o valor desejado.</span>
+
+<span class="sd">    :param n: Posição que se deseja para obter o valor de Fibonacci</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span> 
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Incorrect input&quot;</span><span class="p">)</span> 
+    <span class="c1"># First Fibonacci number is 0 </span>
+    <span class="k">elif</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="c1"># Second Fibonacci number is 1 </span>
+    <span class="k">elif</span> <span class="n">n</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">Fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="print_error"><a class="viewcode-back" href="../cripto.html#cripto.print_error">[documentos]</a><span class="k">def</span> <span class="nf">print_error</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Método responsável em informar ao usuário o modo de uso do módulo acompanhado por </span>
+<span class="sd">    exemplos. A mensagem é exibida em caso de erro ao tentar executá-lo.</span>
+
+<span class="sd">    Está mensagem poderá ser exebida em caso de não passar o parâmetro de criptografia ou</span>
+<span class="sd">    descriptografia, ou mesmo passar ambos os parâmetros. </span>
+<span class="sd">    </span>
+<span class="sd">    Também pode ocorrer está mensagem no caso de haver corretamente o parâmetro de </span>
+<span class="sd">    criptografia ou descriptografia, mas está faltando o parâmetro de texto ou arquivo, ou</span>
+<span class="sd">    mesmo foi passado os dois parâmetros.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Uso: python3 cripto.py [-c] [-d] [-t TEXTO] [-a ARQUIVO] [-s ARQUIVO] [-v] [-h]&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Exemplo:&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;python3 cripto.py -c -t Peso&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;python3 cripto.py -d -a texto.txt&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Criptografar"><a class="viewcode-back" href="../cripto.html#cripto.Criptografar">[documentos]</a><span class="k">def</span> <span class="nf">Criptografar</span><span class="p">(</span><span class="n">texto</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Método responsável em realizar a criptografia de um texto recebido por parâmetro.</span>
+
+<span class="sd">    A criptografia é realizada seguindo os seguintes passos:</span>
+<span class="sd">    </span>
+<span class="sd">    * Inverte o texto</span>
+<span class="sd">    * Troca as letras utilizando o Fibonacci de 3 a 15 como chave:</span>
+<span class="sd">        </span>
+<span class="sd">        * Soma o valor de Fibonacci a letra</span>
+<span class="sd">        * Obtém o resto da divisão do resultado por 254</span>
+<span class="sd">        * O resultado é a nova letra</span>
+
+<span class="sd">    * Transpõe o novo texto utilizando uma matriz quadrada: </span>
+
+<span class="sd">        * O texto é adicionado na matriz</span>
+<span class="sd">        * Percorre a matriz em zig-zag gerando o texto final</span>
+
+<span class="sd">            * Sobe nas colunas pares e desce nas colunas ímpares.</span>
+
+<span class="sd">    * O texto final é retornado</span>
+
+<span class="sd">    :param texto: Texto a ser criptografado</span>
+
+<span class="sd">    :returns: Texto criptografado </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tam</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span>
+    <span class="n">texto</span> <span class="o">=</span> <span class="n">texto</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tam</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">num</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">num</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="n">x</span><span class="o">=</span><span class="n">num</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">tam</span><span class="p">:</span>
+        <span class="n">x</span><span class="o">-=</span><span class="n">tam</span>
+        <span class="n">comp</span><span class="o">=</span><span class="n">x</span><span class="o">*</span><span class="s1">&#39; &#39;</span>
+        <span class="n">texto</span><span class="o">+=</span><span class="n">comp</span>
+        
+    <span class="n">mat</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">cont</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">fib</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+        <span class="n">aux</span><span class="o">=</span><span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+            <span class="n">aux</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">chr</span><span class="p">((</span><span class="nb">ord</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="n">cont</span><span class="p">])</span><span class="o">+</span><span class="n">Fibonacci</span><span class="p">(</span><span class="n">fib</span><span class="p">))</span> <span class="o">%</span> <span class="mi">254</span><span class="p">))</span>
+            <span class="n">cont</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="n">fib</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="n">fib</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+                <span class="n">fib</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">mat</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">aux</span><span class="p">)</span>
+        
+    <span class="n">newText</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">j</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">newText</span><span class="o">+=</span><span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+                <span class="n">newText</span><span class="o">+=</span><span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Criptografado com sucesso:&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">newText</span></div>
+
+
+<div class="viewcode-block" id="Descriptografar"><a class="viewcode-back" href="../cripto.html#cripto.Descriptografar">[documentos]</a><span class="k">def</span> <span class="nf">Descriptografar</span><span class="p">(</span><span class="n">texto</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Método responsável em realizar a descriptografia de um texto recebido por parâmetro. </span>
+
+<span class="sd">    A descriptografia é realizada seguindo os seguintes passos:</span>
+<span class="sd">    </span>
+<span class="sd">    * Transpõe o novo texto utilizando uma matriz quadrada: </span>
+
+<span class="sd">        * O texto é adicionado na matriz em zig-zag</span>
+
+<span class="sd">            * Adiciona subindo nas colunas pares e descendo nas colunas ímpares</span>
+<span class="sd">        </span>
+<span class="sd">    * Percorre a matriz normalmente gerando o novo texto</span>
+<span class="sd">    * Troca as letras utilizando o Fibonacci de 3 a 15 como chave:</span>
+<span class="sd">        </span>
+<span class="sd">        * Subtrai o valor de Fibonacci a letra</span>
+<span class="sd">        * Obtém o resto da divisão do resultado por 254</span>
+<span class="sd">        * O resultado é a nova letra</span>
+<span class="sd">    </span>
+<span class="sd">    * Inverte o novo texto</span>
+<span class="sd">    * O texto final é retornado</span>
+
+<span class="sd">    :param texto: Texto a ser descriptografado</span>
+
+<span class="sd">    :returns: Texto descriptografado </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tam</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tam</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">&gt;</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="n">num</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">num</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="n">x</span><span class="o">=</span><span class="n">num</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">tam</span><span class="p">:</span>
+        <span class="n">x</span><span class="o">-=</span><span class="n">tam</span>
+        <span class="n">comp</span><span class="o">=</span><span class="n">x</span><span class="o">*</span><span class="s1">&#39; &#39;</span>
+        <span class="n">texto</span><span class="o">+=</span><span class="n">comp</span>
+    
+    <span class="n">cont</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">mat</span> <span class="o">=</span> <span class="p">[</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">)]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">j</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+                <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">texto</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span>
+                <span class="n">cont</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+                <span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">texto</span><span class="p">[</span><span class="n">cont</span><span class="p">]</span>
+                <span class="n">cont</span><span class="o">+=</span><span class="mi">1</span>
+                
+    <span class="n">oldText</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+    <span class="n">fib</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+            <span class="n">oldText</span><span class="o">+=</span><span class="nb">chr</span><span class="p">((</span><span class="nb">ord</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="o">-</span><span class="n">Fibonacci</span><span class="p">(</span><span class="n">fib</span><span class="p">))</span> <span class="o">%</span> <span class="mi">254</span><span class="p">)</span>
+            <span class="n">fib</span><span class="o">+=</span><span class="mi">1</span>
+            <span class="k">if</span> <span class="n">fib</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+                <span class="n">fib</span> <span class="o">=</span> <span class="mi">3</span>
+            
+    <span class="n">oldText</span><span class="o">=</span><span class="n">oldText</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Descriptografado com sucesso:&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">oldText</span></div>
+
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../cripto.html#cripto.main">[documentos]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Método responsável em validar os argumentos provenientes da chamada do módulo via</span>
+<span class="sd">    terminal.</span>
+
+<span class="sd">    É realizado a criação dos argumentos e a validação dos mesmos, de modo que é preciso ter</span>
+<span class="sd">    o argumento de criptografia ou descriptografia (não pode ambos) e o argumento de texto </span>
+<span class="sd">    ou arquivo (não pode ambos). O argumento de salvar pode ser também passado pelo usuário.</span>
+
+<span class="sd">    Caso o argumentos sejam de criptografar e texto, o valor do texto é obtido e este método</span>
+<span class="sd">    redireciona para o método Criptografar passando o texto. Caso for descriptografar, a</span>
+<span class="sd">    única diferença é a chamada do método, que neste caso é o método Descriptografar.</span>
+
+<span class="sd">    Quando se trata em realizar a criptografia ou descriptografia de um arquivo, </span>
+<span class="sd">    primeiramente o arquivo é aberto e capturado seu texto, para então ser chamado o método</span>
+<span class="sd">    Criptografar ou Descriptografar.</span>
+
+<span class="sd">    Se não houver o parâmetro de salvar em um arquivo, a criptografia ou a descriptografia é</span>
+<span class="sd">    exibida diretamente no terminal. Caso se deseja salvar, é capturado o nome do arquivo </span>
+<span class="sd">    passado e então é gerado o arquivo com o conteúdo da saída.</span>
+
+<span class="sd">    No interior deste método, há um método chamado validar, que recebe como parâmetro uma</span>
+<span class="sd">    função. Este método é responsável em validar os argumentos de texto e arquivo, </span>
+<span class="sd">    verificando se foi passado apenas um destes argumentos e então realizando a tarefa </span>
+<span class="sd">    escolhida, texto ou arquivo. A função recebida pode ser Criptografar ou Descriptografar, </span>
+<span class="sd">    de modo que há validação é realiza por fora da função, e a mesma só tem a obrigação de </span>
+<span class="sd">    executar a função passada no contexto validado como descrito.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Criptografa ou &quot;</span>
+                            <span class="o">+</span><span class="s2">&quot;Descriptografa um ARQUIVO ou TEXTO.&quot;</span><span class="p">,</span> 
+                                    <span class="n">add_help</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="n">optional</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_argument_group</span><span class="p">(</span><span class="s1">&#39;Argumentos&#39;</span><span class="p">)</span>
+    <span class="n">optional</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--cripto&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Criptografar&quot;</span><span class="p">)</span>
+    <span class="n">optional</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--decripto&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Descriptografar&quot;</span><span class="p">)</span>
+
+    <span class="n">optional</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-t&#39;</span><span class="p">,</span> <span class="s1">&#39;--texto&#39;</span><span class="p">,</span> 
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Entrada de texto&quot;</span><span class="p">)</span>
+    <span class="n">optional</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span> <span class="s1">&#39;--abrir&#39;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;ARQUIVO&#39;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Entrada de arquivo&quot;</span><span class="p">)</span>
+    <span class="n">optional</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--salvar&#39;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s1">&#39;ARQUIVO&#39;</span><span class="p">,</span> 
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Salvar no arquivo&quot;</span><span class="p">)</span>
+
+    <span class="n">optional</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-v&quot;</span><span class="p">,</span> <span class="s2">&quot;--version&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s2">&quot;version&quot;</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Exibe a versão. &quot;</span><span class="p">,</span> 
+                        <span class="n">version</span><span class="o">=</span><span class="s1">&#39;Cripto - &#39;</span><span class="o">+</span><span class="n">VERSAO</span><span class="p">)</span>
+    <span class="n">optional</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-h&#39;</span><span class="p">,</span> <span class="s1">&#39;--help&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;help&#39;</span><span class="p">,</span> 
+                        <span class="n">default</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">SUPPRESS</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Mostra esta mensagem.&#39;</span><span class="p">)</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">verificar</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Método verificar</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">texto</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">abrir</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">texto</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">texto</span><span class="p">)</span> <span class="ow">and</span> <span class="n">args</span><span class="o">.</span><span class="n">abrir</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">arq</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">abrir</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Arquivo ou diretório não encontrado!!&#39;</span><span class="p">)</span>
+                <span class="n">quit</span><span class="p">()</span>
+            <span class="n">texto</span><span class="o">=</span><span class="n">arq</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">arq</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error!&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Não foi passado o argumento de texto ou &quot;</span>
+                <span class="o">+</span><span class="s2">&quot;arquivo, ou foi passado ambos os argumentos!&quot;</span><span class="p">)</span>
+            <span class="n">print_error</span><span class="p">()</span>
+            <span class="n">quit</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">cripto</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">decripto</span><span class="p">):</span>
+        <span class="n">texto</span> <span class="o">=</span> <span class="n">verificar</span><span class="p">(</span><span class="n">Criptografar</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">args</span><span class="o">.</span><span class="n">decripto</span> <span class="ow">and</span> <span class="ow">not</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">cripto</span><span class="p">):</span>
+        <span class="n">texto</span> <span class="o">=</span> <span class="n">verificar</span><span class="p">(</span><span class="n">Descriptografar</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Não foi passado o argumento de criptografia ou &quot;</span>
+            <span class="o">+</span><span class="s2">&quot;descriptografia, ou foi passado ambos os argumentos!&quot;</span><span class="p">)</span>
+        <span class="n">print_error</span><span class="p">()</span>
+        <span class="n">quit</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">salvar</span><span class="p">:</span>
+        <span class="n">arq</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">salvar</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+        <span class="n">arq</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span>
+        <span class="n">arq</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Salvo no arquivo &quot;</span> <span class="o">+</span> <span class="n">args</span><span class="o">.</span><span class="n">salvar</span><span class="p">)</span> 
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">)</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Allainn Tavares e Marcos Anjos
+
+    </p>
+  </div>
+    
+    
+    
+    Compilado com <a href="http://sphinx-doc.org/">Sphinx</a> usando um
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">tema</a>
+    
+    fornecido por <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
