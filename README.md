@@ -14,11 +14,6 @@ Algoritmo responsável por criptografar ou descriptografar textos ou arquivos, e
 
 🧠 A criptografia utilizada faz o uso de transposição matricial e a criptografia de cezar utilizando como chave uma sequência de Fibonacci.
 
-## 👨🏼‍💻 Desenvolvedores
-
-[Allainn Christiam](https://github.com/Allainn)
-[Marcos Alexandre](https://github.com/MarcosAnjos)
-
 ## ✋🏻 Pré-requisitos
 
 1.  Python 3.6
@@ -41,6 +36,24 @@ Algoritmo responsável por criptografar ou descriptografar textos ou arquivos, e
 `python3 cripto -c -t Teste`
 `python3 cripto -d -a criptografado.txt`
 
+## 📒 Documentação
+
+🔶 [Documentação do projeto](https://allainn.github.io/criptografia/build/html/)
+
+<div align="center">
+   <h2 align="center">
+   🔒 Algoritmo de Criptografia 🔒
+  </h2>
+<img src="./docs/img/criptografia.png"/>
+</div>
+
+<div align="center">
+   <h2 align="center">
+   🔓 Algoritmo de Descriptografia 🔓
+  </h2>
+<img src="./docs/img/criptografia.png"/>
+</div>
+
 ## ⚡ Como contribuir
 
 - Faça um `fork` desse repositório;
@@ -50,6 +63,12 @@ Algoritmo responsável por criptografar ou descriptografar textos ou arquivos, e
 
 Depois que o `merge` da sua `pull request` for feito, você pode deletar a sua `branch`.
 
-## 📒 Consulta nossa documentação
+## 👨🏼‍💻 Desenvolvedores
 
-🔶 [Documentação do projeto](https://allainn.github.io/criptografia/build/html/)
+<h4>Allainn Christiam</h4>
+<a href="https://github.com/Allainn"><img alt="Twitter" src="https://img.shields.io/badge/github-%23100000.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
+<a href="https://www.linkedin.com/in/allainn/"><img alt="Linkedin" src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"></a>
+
+<h4>Marcos Alexandre</h4>
+<a href="https://github.com/MarcosAnjos"><img alt="Twitter" src="https://img.shields.io/badge/github-%23100000.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
+<a href="https://www.linkedin.com/in/marcos-alex/"><img alt="Linkedin" src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"></a>

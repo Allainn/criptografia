@@ -1,0 +1,149 @@
+Algoritmo Cripto
+--------------------------------------------------------------------------------
+Variaveis
+  parser
+  optional
+  args
+  arquivo 
+--------------------------------------------------------------------------------
+
+Inicio
+
+  parser <- ("Criptografa | Descriptografa")
+
+  Se parser == 'Criptografa' então
+    optional <- [ '-c', '--cripto']
+
+  Se parser == 'Descriptografa' então
+    optional <- [ '-d', '--decripto']
+
+  optional <- parser
+  
+  Se optional ==  '-t | --texto' então
+    optional <- [ '-t', '--texto']
+    
+  Se optional ==  '-a | --abrir' então
+    optional <- [ '-a', '--abrir']
+
+  Se optional ==  '-s | --salvar' então
+    optional <- [ '-s', '--salvar']
+
+  Se optional ==  '-v | --version' então
+    optional <- [ '-v', '--version']
+
+  Se optional ==  '-h | --help' então
+    optional <- [ '-h', '--help']
+
+  args <- optional
+
+  função verifica():
+    Se args.texto <> && !args.abrir então:
+      return função(args.texto)
+
+    Se !args.texto != args.abrir então:
+      arquivo <- abrir(args.abrir, 'r')
+      texto <- arquivo.ler()
+      arquivo.fechar()
+    return função(texto)
+
+  Se args.cripto != args.decripto então:
+    texto <- verifica(criptografar)
+    Se então args.descripto != args.cripto:
+      texto <- verifica(Descriptografa)
+  senão:
+    escreva('Erro, não passado nenhum argumento')
+
+  if args.salvar então:
+    arquivo <- abrir(args.salvar, 'w')
+    arquivo.escreva(texto)
+    arquivo.fechar()
+  
+FimAlgoritmo
+
+--------------------------------------------------------------------------------
+função Criptografa(texto):
+  tamanho <- tamanho(texto)
+  texto <- inverterTexto()
+  x <- raiz(tamanho)
+
+  Se x > x então:
+    n n num <- arredondamentoSuperior(x)
+  senão num <- x
+
+  x <- num ** 2
+  Se x > tamanho então:
+    x <- x - tamanho
+    comprimento <- x * ' '
+    texto <- texto + comprimento(texto)
+
+  mat <- vetor()
+  cont <- 0
+  fib <- 3 
+
+  Para i ate numero:
+    aux <- vetor
+    Para j ate numero:
+      aux <- texto[cont] + Fibonacci(fib) % 254
+      cont <- cont +1
+      fib <- fib + 1
+      Se fib > 15 então:
+        fib <- 3
+
+  newTexto <- ''
+  Para j ate numero:
+    Se j%2 == 0:
+      Para i ate (numero-1, -1, -1):
+        newTexto <- newTexto(mat[i][j])
+    senão:
+      Para i ate (numero):
+        newTexto <- newTexto(mat[i][j])
+
+  Escreva('Criptografado com sucesso')
+  return newTexto
+  
+  fim função Criptografa
+
+--------------------------------------------------------------------------------
+função Descriptografa(texto):
+  tamanho <- tamanho(texto)
+  x <- raiz(tamanho)
+
+  Se x > x então:
+    n num <- arredondamentoSuperior(x)
+  senão num <- x
+
+  x <- num ** 2
+  Se x > tamanho então:
+    x <- x - tamanho
+    comprimento <- x * ' '
+    texto <- texto + comprimento
+
+  cont <- 0
+  mat <- [ [ 0 Para i ate num ] Para j ate num ]
+  Para j ate num:
+    Se j%2 == 0 então:
+      Para i ate (num -1, -1, -1):
+        mat[i][j] <- texto[cont]
+        cont <- cont + 1
+    senão:
+      Para i ate num:
+        mat[i][j] <- texto[cont]
+        cont <- cont + 1
+
+  textoAntigo <- ''
+  fib <- 3
+
+  Para i ate num:
+    Para j ate num:
+      textoAntigo <- ((mat[i][j]) - Fibonacci(fib)) % 254
+      fib <- fib + 1
+      Se fib > 15 então
+        fib <- 3
+
+  textoAntigo <- textoAntigo('').inverterTexto()
+  escreva('Descriptografado com sucesso')
+  return textoAntigo
+
+fim função Criptografa
+--------------------------------------------------------------------------------
+
