@@ -137,7 +137,6 @@ def print_error():
     print("python3 cripto.py -c -t Peso")
     print("python3 cripto.py -d -a texto.txt")
 
-
 def Criptografar(texto):
     """
     Método responsável em realizar a criptografia de um texto recebido por parâmetro.
@@ -202,7 +201,6 @@ def Criptografar(texto):
 
     print("Criptografado com sucesso:")
     return newText
-
 
 def Descriptografar(texto):
     """
