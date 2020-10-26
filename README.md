@@ -1,6 +1,6 @@
 <div align="center">
    <h1 align="center">
-   Algoritmo de Criptografia e Descriptografaia
+   Algoritmo de Criptografia e Descriptografia
   </h1>
 <img src="https://img.icons8.com/cute-clipart/64/000000/lock.png"/>
   <img src="https://img.icons8.com/dusk/150/000000/hacker.png"/>
@@ -38,9 +38,11 @@ Algoritmo responsável por criptografar ou descriptografar textos ou arquivos, e
             -v, --version                    Exibe a versão.
             -h, --help                       Mostra esta mensagem.
 
-📝**Exemplo**:
-`python3 cripto -c -t Teste`
-`python3 cripto -d -a criptografado.txt`
+📝**Exemplos**:
+
+    $ python3 cripto -c -t Teste
+
+    $ python3 cripto -d -a criptografado.txt
 
 ## 📒 Documentação
 
