@@ -9,8 +9,7 @@
 
 Algoritmo responsável por criptografar ou descriptografar textos ou arquivos, em caso de criptografar/descriptografar um arquivo, é gerado um arquivo de saída, ao criptografar/descriptografar um texto, a mensagem é exibida no terminal.
 
-- [x] 🔒 Quando é criptografado um arquivo é gerado como saída o arquivo **criptografado.txt**.
-- [x] 🔓 Quando é descriptografado um arquivo é gerado como saída o arquivo **descriptografado.txt**.
+- [x] Algoritmo responsável por 🔒criptografar ou 🔓descriptografar textos inseridos diretamente pelo terminal e retornar o texto no mesmo. Além disso é possível realizar a criptografia ou descriptografia de um arquivo. A saída pode ser armazenada em um arquivo texto com o nome desejado.
 
 🧠 A criptografia utilizada faz o uso de transposição matricial e a criptografia de cezar utilizando como chave uma sequência de Fibonacci.
 
@@ -21,16 +20,23 @@ Algoritmo responsável por criptografar ou descriptografar textos ou arquivos, e
 
 ## 🔥 Instalação e execução
 
-1.  Faça um clone desse repositório;
+1.  Faça um clone desse repositório:
+    `git clone https://github.com/Allainn/criptografia.git`
 2.  Entre na pasta `cd master`;
-3.  Na pasta ` criptografia` execute no terminal `python3 cripto.py OPÇÃO(-c | -d) [-a ARQUIVO | -t TEXTO`
-4.  Na duvida consulta o help `pyhton3 cripto.py -h`
-    `-c, --cripto criptografar`
-    `-d, --decripto descriptografar`
-    `-t, --texto entrada de texto`
-    `-a, --arquivo entrada de arquivo`
-    `-h, --help mostra esta ajuda e sai`
-    `-v, --version informa a versão e sai`
+    Na pasta ` criptografia` execute no terminal `$ python3 cripto.py [-c] [-d] [-t TEXTO] [-a ARQUIVO] [-s ARQUIVO] [-v] [-h]`
+
+- Na duvida consulta o **help**:
+
+      $ pyhton3 cripto.py -h
+        Criptografa ou Descriptografa um ARQUIVO ou TEXTO.
+          Argumentos:
+            -c, --cripto                     Criptografar
+            -d, --decripto                   Descriptografar
+            -t TEXTO, --texto TEXTO          Entrada de texto
+            -a ARQUIVO, --abrir ARQUIVO      Entrada de arquivo
+            -s ARQUIVO, --salvar ARQUIVO     Salvar no arquivo
+            -v, --version                    Exibe a versão.
+            -h, --help                       Mostra esta mensagem.
 
 📝**Exemplo**:
 `python3 cripto -c -t Teste`
