@@ -1,6 +1,6 @@
 <div align="center">
    <h1 align="center">
-   Algoritmo de Criptografia e Descriptografaia
+   Algoritmo de Criptografia e Descriptografia
   </h1>
 <img src="https://img.icons8.com/cute-clipart/64/000000/lock.png"/>
   <img src="https://img.icons8.com/dusk/150/000000/hacker.png"/>
