@@ -38,9 +38,11 @@ Algoritmo responsável por criptografar ou descriptografar textos ou arquivos, e
             -v, --version                    Exibe a versão.
             -h, --help                       Mostra esta mensagem.
 
-📝**Exemplo**:
-`python3 cripto -c -t Teste`
-`python3 cripto -d -a criptografado.txt`
+📝**Exemplos**:
+
+    $ python3 cripto -c -t Teste
+
+    $ python3 cripto -d -a criptografado.txt
 
 ## 📒 Documentação
 
